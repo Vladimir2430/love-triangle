@@ -4,8 +4,11 @@
  */
 module.exports = function getLoveTrianglesCount(preferences) {
   var count=0;
-  for (let i=1; i<=preferences.length; i++) {
-    if ((preferences.indexOf(i)>=0) && (preferences.indexOf(i+1)>=0) && (preferences.indexOf(i+2)>=0)) {count+=1;
-    } else {return count;}
+  for (let i=0; i<preferences.length; i++) {
+    let a=preferences[i];
+    let b=preferences[a-1];
+    let c=preferences[b-1];
+    if (c == i+1) {count+=1;}
   }
+  return Math.floor(count/3);
 };
